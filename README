@@ -1,0 +1,67 @@
+This is the experimetnal code for the following paper:
+
+  H.-F. Yu, C.-J. Hsieh, Q. Lei, and I. S. Dhillon. A Greedy Approach for
+  Budgeted Maximum Inner Product Search. Advances in Neural Information
+  Processing Systems (NIPS) 30, 2017.
+
+
+Requirements
+============
+    - g++ with c++11 support
+    - blas/lapack 
+    - python with scipy installed
+
+Datasets
+========
+    To download the datasets used in the paper:
+
+        $ cd data/; ./data/download.sh; cd ..
+
+    To get both query and candidate embedding matrices 
+
+        $ python
+
+        >>> import tcutil
+        >>> W, H = tcutil.tc_read('data/netflix50.tc')
+
+    To prepare your own dataset:
+
+        $ python
+
+        >>> import scipy as sp
+        >>> import tcutil 
+        >>> m, n, d = 100, 1000, 128
+        >>> # query embedding matrix
+        >>> W = sp.rand((m, d), dtype=sp.float64) 
+        >>> # candidate embedding matrix
+        >>> H = sp.rand((n, d), dtype=sp.float64)
+        >>> topk = 50 # use to generate the ground truth topk candiates for each query
+        >>> filename = 'data/new.tc'
+        >>> tcutil.tc_write(W, H, topk, filename)
+
+    Then edit dat_info.py accordingly, see the eamples therein. 
+
+
+Run Experiments and Plot Figures
+================================
+    $ ./run-exp.py all
+    $ ./draw-figs.py
+
+Contact
+=======
+	Please contact Hsiang-Fu Yu (rofuyu@cs.utexas.edu) for any questions
+	regarding the code.
+
+Citation
+========
+    Please acknowlege the use of the code with a citation.
+		H.-F. Yu, C.-J. Hsieh, Q. Lei, and I. S. Dhillon. A Greedy Approach for
+		Budgeted Maximum Inner Product Search. Advances in Neural Information
+		Processing Systems (NIPS) 30, 2017.
+
+    @inproceedings{hfy17c,
+        title={A Greedy Approach for Budgeted Maximum Inner Product Search}
+        author={Hsiang-Fu Yu and Cho-Jui Hsieh and Qi Lei and Inderjit S. Dhillon},
+        booktitle={Advances in Neural Information Processing Systems},
+        year={2017}
+    }
