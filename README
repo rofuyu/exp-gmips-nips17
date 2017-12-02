@@ -1,4 +1,4 @@
-This is the experimetnal code for the following paper:
+This is the experimental code for the following paper:
 
   H.-F. Yu, C.-J. Hsieh, Q. Lei, and I. S. Dhillon. A Greedy Approach for
   Budgeted Maximum Inner Product Search. Advances in Neural Information
@@ -32,14 +32,14 @@ Datasets
         >>> import tcutil 
         >>> m, n, d = 100, 1000, 128
         >>> # query embedding matrix
-        >>> W = sp.rand((m, d), dtype=sp.float64) 
+        >>> W = sp.randn(m, d).astype(sp.float64) 
         >>> # candidate embedding matrix
-        >>> H = sp.rand((n, d), dtype=sp.float64)
-        >>> topk = 50 # use to generate the ground truth topk candiates for each query
+        >>> H = sp.randn(n, d).astype(sp.float64)
+        >>> topk = 50 # use to generate the ground truth topk candidates for each query
         >>> filename = 'data/new.tc'
         >>> tcutil.tc_write(W, H, topk, filename)
 
-    Then edit dat_info.py accordingly, see the eamples therein. 
+    Then edit dat_info.py accordingly, see the examples therein. 
 
 
 Run Experiments and Plot Figures
@@ -54,7 +54,7 @@ Contact
 
 Citation
 ========
-    Please acknowlege the use of the code with a citation.
+    Please acknowledge the use of the code with a citation.
 		H.-F. Yu, C.-J. Hsieh, Q. Lei, and I. S. Dhillon. A Greedy Approach for
 		Budgeted Maximum Inner Product Search. Advances in Neural Information
 		Processing Systems (NIPS) 30, 2017.

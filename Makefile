@@ -2,7 +2,7 @@ CXX?=g++
 VERSION=0.1
 
 all: 
-	make -C src
+	CXX=${CXX} make -C src
 
 zip:
 	make clean; cd ../;  zip -r --symlinks gmips-nips17-exp-${VERSION}.zip release-${VERSION}/

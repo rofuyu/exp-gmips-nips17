@@ -12,7 +12,7 @@ if sys.version_info[0] < 3:
     _to_cstr = lambda s: s.encode("utf-8") if isinstance(s, unicode) else str(s)
 else :
     _to_cstr = lambda s: bytes(s, "utf-8")
-    basestring = (str, buffer)
+    basestring = (str, bytes)
 
 dirname = path.dirname(path.abspath(__file__))
 try :
